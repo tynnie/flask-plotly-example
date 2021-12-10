@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+    <section>
+        <div class="paragraph">
+            <div class="paragraph-text">
+                <div class="hl"></div>
+                <h2>歷年水情</h2>
+                <h3></h3>
+            </div>
+        </div>
+        <div class="graphic">
+            {% for i in meta_all %}
+                <div class="col-2">
+                    <div class="graphic-text">
+                        <h4><i class="fas fa-caret-right"></i>{{ i[0] }}　|　</h4>
+                        <p>蓄水率： {{ i[1] }}%（{{ i[2] }}）</p>
+                    </div>
+
+                    <div id="{{ i[3] }}" class="chart"></div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <script type="text/javascript">
+        var graph_all = {{ graph_json_all | safe }};
+        var meta_all = {{ meta_all | safe }};
+        var graphTotal = graph_all.length;
+        for (var i = 0; i < graphTotal; i++) {
+            Plotly.plot(meta_all[i], JSON.parse(graph_all[i]), {});
+        }
+    </script>
+{% endblock %}

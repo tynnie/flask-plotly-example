@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link rel="canonical" href="https://flask-example-reservoir-data.herokuapp.com/{{ page_route }}" />
+    <title>{{ meta_title }}</title>
+
+    <!-- custom meta information -->
+    <meta name="description" content="A simple dataviz website template."/>
+    <meta name="author" content="Ting-Ni Wu"/>
+    <meta property="og:title" content="DSSI DEMO"/>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet"/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"/>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.3.0/font-awesome-animation.min.css"/>
+
+    <!-- custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='global.css') }}"/>
+
+    <!-- custom JS file -->
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!--  Plotly  -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js "></script>
+</head>
+<body>
+<div class="nav">
+    <div class="nav-item logo-title">DSSI demo</div>
+    <div class="nav-item middle-title">
+    </div>
+    <div class="nav-item social-icon">
+        <a href="https://github.com/tynnie"><i class="fab fa-github"></i></a>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        {% block content %}{% endblock %}
+        <section>
+    <div class="divider"></div>
+    <div class="paragraph">
+        <div class="paragraph-text">
+            <h4>聲明</h4>
+            <p>本網站資料呈現目的為提供程式設計課堂教學案例，水情資料未經人工檢驗，可能因資料源問題而產生錯誤。</p>
+        </div>
+        <div class="paragraph-text">
+            <h4>資料來源</h4>
+            <p><a href="https://fhy.wra.gov.tw/ReservoirPage_2011/StorageCapacity.aspx">台灣地區主要水庫蓄水量報告表</a>｜<a
+                    href="https://github.com/tynnie/taiwan-reservoir-data-crawler">資料擷取程式</a></p>
+        </div>
+        <div class="paragraph-text">
+            <h4>資料分析說明</h4>
+            <p>從經濟部水利署防災資訊網初步觀察，可發現每一個水庫資料更新時間不同步，且並非每個水庫都穩定提供資料。<br/>本網站參考經濟部水利署水利規劃試驗所「全國重要水庫未來入庫流量預報」中的監測對象，以全臺18座水庫及2座攔河堰作為資料分析對象：
+            <ul>
+                <li>水庫：石門水庫, 新山水庫, 翡翠水庫, 寶山第二水庫, 永和山水庫, 明德水庫. 鯉魚潭水庫, 湖山水庫, 仁義潭水庫, 白河水庫, 烏山頭水庫, 曾文水庫, 南化水庫, 阿公店水庫,
+                    牡丹水庫, 德基水庫, 霧社水庫, 日月潭水庫
+                </li>
+                <li>攔河堰：石岡壩, 高屏溪攔河堰</li>
+            </ul>
+            </p>
+        </div>
+    </div>
+</section>
+    </div>
+</div>
+<footer>
+    <p>Ting-Ni Wu © Copyright 2021</p>
+</footer>
+</body>
+</html>

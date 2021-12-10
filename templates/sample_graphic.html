@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <section>
+        <div class="paragraph">
+            <div class="paragraph-text">
+                <div class="hl"></div>
+                <h2>{{ meta_info[0] }}歷年水情</h2>
+                <h3></h3>
+            </div>
+        </div>
+        <div class="graphic">
+                    <div class="graphic-text">
+                        <p>蓄水率： {{ meta_info[1] }}%（{{ meta_info[2] }}）</p>
+                    </div>
+                    <div id="chart" class="chart"></div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        var graphJSON = {{ reservoir_graph_json | safe }};
+        Plotly.plot('chart', graphJSON, {});
+
+        // for resizing plotly items
+        $(window).resize(function() {
+            Plotly.Plots.resize(document.getElementById("chart"));
+        });
+    </script>
+{% endblock %}
