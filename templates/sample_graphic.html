@@ -9,10 +9,19 @@
             </div>
         </div>
         <div class="graphic">
-                    <div class="graphic-text">
-                        <p>蓄水率： {{ meta_info[1] }}%（{{ meta_info[2] }}）</p>
-                    </div>
-                    <div id="chart" class="chart"></div>
+            <div class="graphic-text">
+                <p>蓄水率： {{ meta_info[1] }}%（{{ meta_info[2] }}）</p>
+            </div>
+            <div id="chart" class="chart"></div>
+        </div>
+        <div class="sub-nav">
+            <div class="sub-nav-item">
+                <a href="/sample_reservoir_data"><h3>➡ 看範例資料</h3></a>
+            </div>
+            <div class="sub-nav-item">
+                <a href="https://flask-example-reservoir-data.herokuapp.com/"><h3>➡ 看另一個Flask應用</h3></a>
+            </div>
+
         </div>
     </section>
     <script type="text/javascript">
@@ -20,7 +29,7 @@
         Plotly.plot('chart', graphJSON, {});
 
         // for resizing plotly items
-        $(window).resize(function() {
+        $(window).resize(function () {
             Plotly.Plots.resize(document.getElementById("chart"));
         });
     </script>
